@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Desafio.Marin.Aplicacao.Comandos;
+using MediatR;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Desafio.Marin.API.Controllers
 {
@@ -6,15 +8,26 @@ namespace Desafio.Marin.API.Controllers
     [ApiController]
     public class ArquivoController : ControllerBase
     {
-        [HttpPost]
-        public IActionResult ProcessarArquivo(IFormFile file)
-        {
-            if (Path.GetExtension(file.FileName) != "cnab")
-            {
-                return BadRequest(new { Erro = "Arquivo no formato incorreto" });
-            }
+        private readonly IMediator _mediator;
 
-            return Ok();
+        public ArquivoController(IMediator mediator)
+        {
+            _mediator = mediator;
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> ProcessarArquivo(ProcessarArquivoCNABCommand command)
+        {
+            var resultado = await _mediator.Send(command);
+
+            if (resultado.IsSuccess)
+            {
+                return Ok();
+            }
+            else
+            {
+                return BadRequest(new { resultado.Error });
+            }
         }
     }
 }

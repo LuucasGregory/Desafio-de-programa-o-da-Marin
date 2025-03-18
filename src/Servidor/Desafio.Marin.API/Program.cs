@@ -1,3 +1,5 @@
+using Desafio.Marin.Aplicacao.Comandos;
+
 namespace Desafio.Marin.API
 {
     public class Program
@@ -9,6 +11,10 @@ namespace Desafio.Marin.API
             builder.Services.AddControllers();
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+            builder.Services.AddMediatR(config =>
+            {
+                config.RegisterServicesFromAssemblyContaining(typeof(ProcessarArquivoCNABCommand));
+            });
 
             var app = builder.Build();
 
