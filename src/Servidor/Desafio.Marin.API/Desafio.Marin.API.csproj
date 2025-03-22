@@ -11,12 +11,18 @@
   <ItemGroup>
     <PackageReference Include="CSharpFunctionalExtensions" Version="3.5.1" />
     <PackageReference Include="MediatR" Version="12.4.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.14">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.14" />
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.21.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Desafio.Marin.Aplicacao\Desafio.Marin.Aplicacao.csproj" />
+    <ProjectReference Include="..\Desafio.Marin.Infra\Desafio.Marin.Infra.csproj" />
   </ItemGroup>
 
 </Project>
