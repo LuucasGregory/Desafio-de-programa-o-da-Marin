@@ -2,7 +2,9 @@
 {
     public interface ITransacaoRepository
     {
-        Task<Transacao> Inserir(Transacao transacao);
-        Task<IList<Transacao>> BuscarTodos();
+        Task<Transacao> InserirAsync(Transacao transacao);
+        Task<IList<Transacao>> BuscarTodosAsync();
+
+        Task SaveChangesAsync();
     }
 }

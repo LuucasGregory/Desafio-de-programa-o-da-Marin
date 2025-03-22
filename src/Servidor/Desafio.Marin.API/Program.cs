@@ -24,6 +24,7 @@ namespace Desafio.Marin.API
 
             builder.Services.AddScoped<IDatabaseContext, AppDbContext>();
             builder.Services.AddScoped<ITransacaoRepository, TransacaoRepository>();
+            builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
             var app = builder.Build();
 
