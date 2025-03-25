@@ -1,4 +1,7 @@
-﻿using Desafio.Marin.Dominio;
+﻿//implementação de repositorio
+
+
+using Desafio.Marin.Dominio;
 using Microsoft.EntityFrameworkCore;
 
 namespace Desafio.Marin.Infra

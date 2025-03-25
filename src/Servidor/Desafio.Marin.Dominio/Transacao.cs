@@ -1,4 +1,6 @@
-﻿namespace Desafio.Marin.Dominio
+﻿// regras do negocio 
+
+namespace Desafio.Marin.Dominio
 {
     public class Transacao
     {

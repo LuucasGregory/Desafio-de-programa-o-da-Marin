@@ -1,4 +1,7 @@
-﻿using System.Reflection;
+﻿// banco de dados"apanhei muito nesse"
+
+
+using System.Reflection;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 

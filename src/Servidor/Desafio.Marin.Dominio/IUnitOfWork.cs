@@ -1,4 +1,7 @@
-﻿namespace Desafio.Marin.Dominio
+﻿// unidade de trabalho"auto-explicativo"
+
+
+namespace Desafio.Marin.Dominio
 {
     public interface IUnitOfWork : IDisposable
     {

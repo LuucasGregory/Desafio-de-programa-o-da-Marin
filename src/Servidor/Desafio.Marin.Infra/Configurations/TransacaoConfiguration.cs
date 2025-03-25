@@ -1,4 +1,7 @@
-﻿using Desafio.Marin.Dominio;
+﻿// configuração do banco de dados
+
+
+using Desafio.Marin.Dominio;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 

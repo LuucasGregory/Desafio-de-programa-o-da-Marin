@@ -1,6 +1,8 @@
 ﻿using CSharpFunctionalExtensions;
 using Desafio.Marin.Dominio;
 using MediatR;
+// lógica de processamento do CNAB
+
 using Microsoft.AspNetCore.Http;
 
 namespace Desafio.Marin.Aplicacao.Comandos

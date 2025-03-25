@@ -1,4 +1,6 @@
-﻿namespace Desafio.Marin.Dominio
+﻿// interfaces do repositorio
+
+namespace Desafio.Marin.Dominio
 {
     public interface ITransacaoRepository
     {

@@ -1,4 +1,6 @@
-﻿using Desafio.Marin.Aplicacao.Comandos;
+﻿// Recebe requisições HTTP
+
+using Desafio.Marin.Aplicacao.Comandos;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 

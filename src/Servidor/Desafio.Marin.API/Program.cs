@@ -1,3 +1,5 @@
+//configura API
+
 using Desafio.Marin.Aplicacao.Comandos;
 using Desafio.Marin.Dominio;
 using Desafio.Marin.Infra;
