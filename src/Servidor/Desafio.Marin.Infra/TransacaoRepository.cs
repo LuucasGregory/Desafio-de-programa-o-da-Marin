@@ -15,16 +15,14 @@ namespace Desafio.Marin.Infra
             _databaseContext = databaseContext;
         }
 
-        public async Task<IList<Transacao>> BuscarTodosAsync()
+        public Task<List<Transacao>> BuscarTodosAsync(CancellationToken cancellationToken)
         {
-            return await _databaseContext.Set<Transacao>().ToListAsync();
+            return _databaseContext.Set<Transacao>().ToListAsync(cancellationToken);
         }
 
-        public async Task<Transacao> InserirAsync(Transacao transacao)
+        public Task InserirAsync(IList<Transacao> transacao, CancellationToken cancellationToken)
         {
-            var entityEntry = await _databaseContext.Set<Transacao>().AddAsync(transacao);
-
-            return entityEntry.Entity;
+            return _databaseContext.Set<Transacao>().AddRangeAsync(transacao.ToArray(), cancellationToken);
         }
     }
 }

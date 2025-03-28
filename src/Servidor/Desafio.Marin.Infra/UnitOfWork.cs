@@ -15,9 +15,9 @@ namespace Desafio.Marin.Infra
             _context = context;
         }
 
-        public Task<int> CommitAsync()
+        public Task<int> CommitAsync(CancellationToken cancellationToken)
         {
-            return _context.SaveChangesAsync();
+            return _context.SaveChangesAsync(cancellationToken);
         }
 
         protected virtual void Dispose(bool disposing)

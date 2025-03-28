@@ -24,5 +24,10 @@
             Representante = representante;
             NomeLoja = nomeLoja;
         }
+
+        public void AtribuirHorario(TimeSpan hora)
+        {
+            Data = Data.Add(hora);
+        }
     }
 }

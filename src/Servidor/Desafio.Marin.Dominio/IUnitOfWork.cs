@@ -5,6 +5,6 @@
     /// </summary>
     public interface IUnitOfWork : IDisposable
     {
-        Task<int> CommitAsync();
+        Task<int> CommitAsync(CancellationToken cancellationToken);
     }
 }

@@ -24,9 +24,9 @@ namespace Desafio.Marin.API.Controllers
         /// <param name="command"></param>
         /// <returns></returns>
         [HttpPost]
-        public async Task<IActionResult> ProcessarArquivo(ProcessarArquivoCNABCommand command)
+        public async Task<IActionResult> ProcessarArquivo(ProcessarArquivoCNABCommand command, CancellationToken cancellationToken)
         {
-            var resultado = await _mediator.Send(command);
+            var resultado = await _mediator.Send(command, cancellationToken);
 
             if (resultado.IsSuccess)
             {

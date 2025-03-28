@@ -5,7 +5,7 @@
     /// </summary>
     public interface ITransacaoRepository
     {
-        Task<Transacao> InserirAsync(Transacao transacao);
-        Task<IList<Transacao>> BuscarTodosAsync();
+        Task InserirAsync(IList<Transacao> transacao, CancellationToken cancellationToken);
+        Task<List<Transacao>> BuscarTodosAsync(CancellationToken cancellationToken);
     }
 }
