@@ -1,7 +1,11 @@
+using System.Reflection;
 using Desafio.Marin.Aplicacao.Comandos;
+using Desafio.Marin.Aplicacao.Modelos;
 using Desafio.Marin.Dominio;
 using Desafio.Marin.Infra;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
+using Microsoft.OpenApi.Models;
 
 namespace Desafio.Marin.API
 {
@@ -16,11 +20,30 @@ namespace Desafio.Marin.API
 
             builder.Services.AddControllers();
             builder.Services.AddEndpointsApiExplorer();
-            builder.Services.AddSwaggerGen();
+            builder.Services.AddSwaggerGen(config =>
+            {
+                var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+                config.IncludeXmlComments(xmlPath);
+
+                config.SwaggerDoc("v1", new OpenApiInfo
+                {
+                    Title = "MarinLog API",
+                    Version = "v1",
+                    Contact = new OpenApiContact
+                    {
+                        Name = "Lucas Gregory",
+                        Url = new Uri("https://github.com/LuucasGregory")
+                    }
+                });
+            });
+
             builder.Services.AddMediatR(config =>
             {
                 config.RegisterServicesFromAssemblyContaining(typeof(ProcessarArquivoCNABCommand));
             });
+
+            builder.Services.AddAutoMapper(typeof(TransacaoModelo));
 
             builder.Services.AddDbContext<AppDbContext>(options =>
                 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
@@ -40,7 +63,10 @@ namespace Desafio.Marin.API
             if (app.Environment.IsDevelopment())
             {
                 app.UseSwagger();
-                app.UseSwaggerUI();
+                app.UseSwaggerUI(c =>
+                {
+                    c.SwaggerEndpoint("/swagger/v1/swagger.json", "Desafio.Marin.API v1");
+                });
             }
 
             //app.UseHttpsRedirection();
