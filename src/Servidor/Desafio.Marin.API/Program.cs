@@ -38,6 +38,16 @@ namespace Desafio.Marin.API
                 });
             });
 
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy("PermitirTudo", policy =>
+                {
+                    policy.AllowAnyOrigin()  // Permite qualquer origem
+                          .AllowAnyMethod()  // Permite qualquer método (GET, POST, PUT, DELETE, etc.)
+                          .AllowAnyHeader(); // Permite qualquer cabeçalho
+                });
+            });
+
             builder.Services.AddMediatR(config =>
             {
                 config.RegisterServicesFromAssemblyContaining(typeof(ProcessarArquivoCNABCommand));
@@ -68,6 +78,8 @@ namespace Desafio.Marin.API
                     c.SwaggerEndpoint("/swagger/v1/swagger.json", "Desafio.Marin.API v1");
                 });
             }
+
+            app.UseCors("PermitirTudo");
 
             //app.UseHttpsRedirection();
 
