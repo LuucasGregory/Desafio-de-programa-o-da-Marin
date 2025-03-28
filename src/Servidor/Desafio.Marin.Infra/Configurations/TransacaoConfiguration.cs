@@ -1,12 +1,12 @@
-﻿// configuração do banco de dados
-
-
-using Desafio.Marin.Dominio;
+﻿using Desafio.Marin.Dominio;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Desafio.Marin.Infra.Configurations
 {
+    /// <summary>
+    /// Configuração do mapeamento da entidade Transacao
+    /// </summary>
     public class TransacaoConfiguration : IEntityTypeConfiguration<Transacao>
     {
         public void Configure(EntityTypeBuilder<Transacao> builder)

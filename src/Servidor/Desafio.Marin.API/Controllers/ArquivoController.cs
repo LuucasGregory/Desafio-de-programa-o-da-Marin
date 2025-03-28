@@ -1,11 +1,12 @@
-﻿// Recebe requisições HTTP
-
-using Desafio.Marin.Aplicacao.Comandos;
+﻿using Desafio.Marin.Aplicacao.Comandos;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Desafio.Marin.API.Controllers
 {
+    /// <summary>
+    /// Controller para processamento de arquivos CNAB
+    /// </summary>
     [Route("api/[controller]")]
     [ApiController]
     public class ArquivoController : ControllerBase
@@ -17,6 +18,11 @@ namespace Desafio.Marin.API.Controllers
             _mediator = mediator;
         }
 
+        /// <summary>
+        /// Processa um arquivo CNAB
+        /// </summary>
+        /// <param name="command"></param>
+        /// <returns></returns>
         [HttpPost]
         public async Task<IActionResult> ProcessarArquivo(ProcessarArquivoCNABCommand command)
         {

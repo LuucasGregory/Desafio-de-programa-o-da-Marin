@@ -1,7 +1,4 @@
-﻿// banco de dados"apanhei muito nesse"
-
-
-using System.Reflection;
+﻿using System.Reflection;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 
@@ -14,6 +11,9 @@ namespace Desafio.Marin.Infra
         Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
     }
 
+    /// <summary>
+    /// Contexto do banco de dados
+    /// </summary>
     public class AppDbContext : DbContext, IDatabaseContext
     {
         public AppDbContext(DbContextOptions<AppDbContext> options)

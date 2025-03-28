@@ -1,11 +1,11 @@
-﻿//implementação de repositorio
-
-
-using Desafio.Marin.Dominio;
+﻿using Desafio.Marin.Dominio;
 using Microsoft.EntityFrameworkCore;
 
 namespace Desafio.Marin.Infra
 {
+    /// <summary>
+    /// Repositório de transações
+    /// </summary>
     public class TransacaoRepository : ITransacaoRepository
     {
         private IDatabaseContext _databaseContext;
@@ -25,11 +25,6 @@ namespace Desafio.Marin.Infra
             var entityEntry = await _databaseContext.Set<Transacao>().AddAsync(transacao);
 
             return entityEntry.Entity;
-        }
-
-        public Task SaveChangesAsync()
-        {
-            throw new NotImplementedException();
         }
     }
 }

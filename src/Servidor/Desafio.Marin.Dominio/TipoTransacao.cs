@@ -1,5 +1,8 @@
 ﻿namespace Desafio.Marin.Dominio
 {
+    /// <summary>
+    /// Enumerador para os tipos de transação
+    /// </summary>
     public enum TipoTransacao
     {
         Debito = 1,

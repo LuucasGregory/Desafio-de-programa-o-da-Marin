@@ -1,12 +1,13 @@
 ﻿using CSharpFunctionalExtensions;
 using Desafio.Marin.Dominio;
 using MediatR;
-// lógica de processamento do CNAB
-
 using Microsoft.AspNetCore.Http;
 
 namespace Desafio.Marin.Aplicacao.Comandos
 {
+    /// <summary>
+    /// Comando para processar um arquivo CNAB
+    /// </summary>
     public class ProcessarArquivoCNABCommand : IRequest<Result>
     {
         public IFormFile Arquivo { get; set; }

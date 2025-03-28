@@ -2,6 +2,9 @@
 
 namespace Desafio.Marin.Infra
 {
+    /// <summary>
+    /// Classe que implementa a interface IUnitOfWork, usada para salvar as alterações no banco de dados.
+    /// </summary>
     public class UnitOfWork : IUnitOfWork
     {
         private readonly IDatabaseContext _context;

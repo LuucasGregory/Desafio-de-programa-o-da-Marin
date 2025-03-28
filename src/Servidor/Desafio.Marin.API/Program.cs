@@ -1,5 +1,3 @@
-//configura API
-
 using Desafio.Marin.Aplicacao.Comandos;
 using Desafio.Marin.Dominio;
 using Desafio.Marin.Infra;
@@ -7,6 +5,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Desafio.Marin.API
 {
+    /// <summary>
+    /// Inicialização da aplicação.
+    /// </summary>
     public class Program
     {
         public static void Main(string[] args)

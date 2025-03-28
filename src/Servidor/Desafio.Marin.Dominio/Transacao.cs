@@ -1,7 +1,8 @@
-﻿// regras do negocio 
-
-namespace Desafio.Marin.Dominio
+﻿namespace Desafio.Marin.Dominio
 {
+    /// <summary>
+    /// Classe para representar uma transação
+    /// </summary>
     public class Transacao
     {
         public Guid Id { get; set; }
